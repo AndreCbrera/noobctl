@@ -1,24 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: php-apache
   namespace: pre
 spec:
-  replicas: 2
   selector:
     matchLabels:
-      app: nginx-deployment-app
+      run: php-apache
+  replicas: 1
   template:
     metadata:
       labels:
-        app: nginx-deployment-app
+        run: php-apache
     spec:
       containers:
-      - image: nginx:1.14.2
-        name: nginx
+      - name: php-apache
+        image: nginx:1.14.2
         ports:
         - containerPort: 80
         resources:
           limits:
+            cpu: 2m
+          requests:
             cpu: 1m
-            memory: 128Mi
