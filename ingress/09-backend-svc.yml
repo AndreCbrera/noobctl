@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2022-03-10T12:04:54Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":80,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:app: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl-create
+    operation: Update
+    time: "2022-03-10T12:04:54Z"
+  name: default-http-backend
+  namespace: app-space
+  resourceVersion: "819"
+  uid: a50ff0f8-0ec4-4388-ad39-1334612390c4
+spec:
+  clusterIP: 10.96.117.33
+  clusterIPs:
+  - 10.96.117.33
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: default-backend
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
